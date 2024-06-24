@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from requests import get
+from os import getenv
 
 app = Flask('Hubbix')
 
@@ -46,4 +47,5 @@ def clientes():
     return render_template('clientes.html', cli=res, totalAtivos=ativos, totalInativos=inativos, total=total, vitalicio=vitalicio, mensal=mensal, anual=anual, faturamento=faturamento)
 
 if __name__ == '__main__':
-    app.run()
+    port = int(getenv('PORT', '5000'))
+    app.run(host='0.0.0.0', port=port)
