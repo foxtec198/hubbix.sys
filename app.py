@@ -13,7 +13,7 @@ def getPacotes():
     return res.json()
 
 @app.route('/login')
-def home():
+def homeLogin():
     return render_template('index.html')
 
 @app.route('/')
