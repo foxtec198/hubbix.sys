@@ -51,5 +51,5 @@ def clientes():
     return render_template('clientes.html', cli=res, totalAtivos=ativos, totalInativos=inativos, total=total, vitalicio=vitalicio, mensal=mensal, anual=anual, faturamento=faturamento)
 
 if __name__ == '__main__':
-    port = int(getenv('PORT', '5000'))
+    port = int(getenv('PORT', '4040'))
     app.run(host='0.0.0.0', port=port)
