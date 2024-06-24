@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from requests import get
 from os import getenv
 
-app = Flask('Hubbix')
+app = Flask(__name__)
 
 def getClientes():
     res = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Lojas.json') 
