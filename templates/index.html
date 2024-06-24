@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
+    <title>Hubbix Systems - Login</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href={{url_for('static', filename="style.css")}}>
+    <link rel="icon" href={{url_for('static', filename='icons/favicon.ico')}}>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hubbix Systems - Login</title>
+    <script type="module" src={{url_for('static', filename="sc.js")}}></script>
 </head>
 <body>
     <div class="container">
-        <div>
-            <img alt="logo">
-            <br>
-        </div>
-        <div>
-            <input type="email"><br>
-            <input type="password"><br>
-            <button><img alt="img"> Login</button>
-        </div>
+            <img class="logo" src={{url_for('static', filename="logo-white.png")}}>
+            <!-- <p>Sistema de Gestão e Vendas!</p> -->
+            <form id="login">
+                <input id="email" type="email" placeholder="Email" required="required" autocomplete="email">
+                <input id="pwd" type="password" placeholder="Senha" required="required" autocomplete="current-password">
+            </form>
+            <button id="btn">Login</button>
     </div>
 </body>
 </html>
