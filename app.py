@@ -52,4 +52,5 @@ def clientes():
 
 if __name__ == '__main__':
     port = int(getenv('PORT', '3600'))
-    app.run(host='0.0.0.0', port=port)
+    debug = True
+    app.run(debug=debug, host='0.0.0.0', port=port)

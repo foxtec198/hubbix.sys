@@ -34,6 +34,15 @@
             padding: 5px;
             padding-top: 10px;
         }
+        table tr td button{
+            background: none;
+            color: ghostwhite;
+            text-decoration: underline;
+            cursor: pointer;
+            border: none;
+            gap: 20px;
+            padding: 7px;
+        }
         table tr th{
             border-bottom: 1px solid ghostwhite;
             color: white;
@@ -71,6 +80,7 @@
         .metric span{
             text-align: center;
             font-size: x-large;
+            font-weight: 700;
         }
         .metric img{
             width: 24px;
@@ -182,6 +192,7 @@
                 <tr>
                     <th scope="col" colspan="2">Nome</th>
                     <th scope="col">Empresa</th>
+                    <th scope="col">Hubbix</th>
                     <th scope="col" colspan="2">Situação</th>
                 </tr>
             </thead>
@@ -190,6 +201,7 @@
                 <tr>
                     <td colspan="2">{{cli[i]['Nome do Negociante'].capitalize()}}</td>
                     <td>{{cli[i]['Nome da Loja'].capitalize()}}</td>
+                    <td>{{cli[i]['Sistema Escolhido'].capitalize()}}</td>
                     {% if cli[i]['Situação'] == 'Ativa' %}
                         <td style="color: #2f5e36;">{{cli[i]['Situação'].capitalize()}}</td>
                     {% else %}
