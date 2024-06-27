@@ -11,8 +11,19 @@
     <div class="top">
         <img src={{url_for('static', filename="logo-white.png")}} class="logo">
     </div>
-    
-    <div class="conteiner">
+    <div class="container">
+        <div class="graphs">
+            <div class="metrics">
+                <div class="card" style="background-color: #283618;">
+                    <p>Total de Vendas</p>
+                    R$ {{resultados['totalVendas']}}
+                </div>
+                <div class="card" style="background-color: #2a9d8f;">
+                    <p>Quantidade de Vendas</p>
+                    R$ {{resultados['contagemVendas']}}
+                </div>
+            </div>
+        </div>
         <div class="infos">
             <p style="font-size: large; text-decoration: underline;">Dados da Loja: <b>{{dados['Nome da Loja'].capitalize()}}</b></p>
             {%for item in dados%}
@@ -27,11 +38,16 @@
                                 <p class="items"><b>- {{sub.upper()}}:</b> {{dados[item][sub]}}</p>
                         {% endfor %}
                     {% else %}
-                        <p class="items"><b>{{item}}:</b> {{dados[item]}}</p>
+                        <p class="items"><b>{{item}}:</b> {{dados[item].capitalize()}}</p>
                     {% endif %}
                 {% endif %}
             {% endfor %}
         </div>
+        {% if dados['Situação'] == 'Ativa' %}
+            <button class="btnDeactivate">Desativar Loja</button>
+        {% elif dado['Situação'] == 'Inativa' %}
+            <button class="btnActivate">Ativar Loja</button>
+        {% endif %}
     </div>
 </body>
 </html>

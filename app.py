@@ -15,6 +15,24 @@ def getDadosEmpresa(idEmp):
     res = get(f'https://hubbixgourmet-default-rtdb.firebaseio.com/Lojas/{idEmp}/.json') 
     return res.json()
 
+def resultadosEmpresa(idEmp):
+    dd = get(f'https://hubbixgourmet-default-rtdb.firebaseio.com/Lojas/{idEmp}/db/.json').json()
+    resultado = {}
+    vendas = dd['vendas']
+    totalVendas = 0
+    contagemVendas = 0
+    
+    for item in vendas:
+        if item:
+            totalVendas += float(item[2])
+            contagemVendas += 1
+
+    resultado['totalVendas'] = f'{totalVendas:.2f}'
+    resultado['contagemVendas'] = contagemVendas
+
+    return resultado
+
+
 # Funções do Flask / Rotas
 app = Flask(__name__)
 
@@ -26,7 +44,8 @@ def home():
 @app.route('/acesso/<idEmp>')
 def register(idEmp):
     dados = getDadosEmpresa(idEmp)
-    return render_template('empresa.html', dados=dados)
+    resultados = resultadosEmpresa(idEmp)
+    return render_template('empresa.html', dados=dados, resultados=resultados)
 
 @app.route('/clientes/idUser=<idUser>')
 def clientes(idUser):
