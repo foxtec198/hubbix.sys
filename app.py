@@ -2,8 +2,7 @@ from flask import Flask, render_template
 from requests import get
 from os import getenv
 
-app = Flask(__name__)
-
+# Funções Python
 def getClientes():
     res = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Lojas.json') 
     return res.json()
@@ -12,18 +11,26 @@ def getPacotes():
     res = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Pacotes.json') 
     return res.json()
 
+def getDadosEmpresa(idEmp):
+    res = get(f'https://hubbixgourmet-default-rtdb.firebaseio.com/Lojas/{idEmp}/.json') 
+    return res.json()
+
+# Funções do Flask / Rotas
+app = Flask(__name__)
+
 @app.route('/')
 @app.route('/login/')
 def home():
-    return render_template('index.html')
+    return render_template('login.html')
 
-@app.route('/registro/')
-def register():
-    return render_template('register.html')
-
+@app.route('/acesso/<idEmp>')
+def register(idEmp):
+    dados = getDadosEmpresa(idEmp)
+    return render_template('empresa.html', dados=dados)
 
 @app.route('/clientes/idUser=<idUser>')
 def clientes(idUser):
+    # Valores dos Pacotes
     pc = getPacotes()
     anual = 0
     mensal = 0
@@ -34,6 +41,7 @@ def clientes(idUser):
         if i.lower() == 'mensal': mensal = int(p)
         if i.lower() == 'vitalicio': vitalicio = int(p)
 
+    # Metricas
     res = getClientes()
     ativos = 0
     inativos = 0
@@ -50,9 +58,10 @@ def clientes(idUser):
         if p == 'Vitalicio': faturamento += vitalicio
         if p == 'Mensal': faturamento += (mensal*12)
         if p == 'Anual': faturamento += anual
+
     return render_template('clientes.html', cli=res, totalAtivos=ativos, totalInativos=inativos, total=total, vitalicio=vitalicio, mensal=mensal, anual=anual, faturamento=faturamento, idUser=idUser)
 
 if __name__ == '__main__':
-    port = int(getenv('PORT', '3600'))
-    debug = True
+    port = int(getenv('PORT', '3600')) # Config para o Heroku
+    debug = True # Preguiça de trocar o param na função kk
     app.run(debug=debug, host='0.0.0.0', port=port)

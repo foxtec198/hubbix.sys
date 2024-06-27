@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background: #333;
+    color: white;
+    font-family: sans-serif;
+}
+.top{
+    background-color: #343a40;
+    display: flex;
+    height: 60px;
+    padding: .3rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.logo{
+    height: 25px;
+}
+.conteiner{
+    padding: .5rem;
+}
+.items{
+    font-size: 16px;
+}
+.infos{
+    background-color: #000;
+    border-radius: 20px;
+    padding: .5rem;
+}

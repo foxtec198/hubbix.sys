@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{dados['Nome da Loja'].capitalize()}}</title>
+    <link rel="icon" href={{url_for('static', filename='icons/favicon.ico')}}>
+    <link rel="stylesheet" href={{url_for('static', filename="css/empresa.css")}}>
+</head>
+<body>
+    <div class="top">
+        <img src={{url_for('static', filename="logo-white.png")}} class="logo">
+    </div>
+    
+    <div class="conteiner">
+        <div class="infos">
+            <p style="font-size: large; text-decoration: underline;">Dados da Loja: <b>{{dados['Nome da Loja'].capitalize()}}</b></p>
+            {%for item in dados%}
+                {% if item != 'db' and item != 'Dados da Loja'%}
+                    {% if item == "IP's"%}
+                        {% for tipo in dados[item]%}
+                            <p class="items"><b>IP {{tipo}}:</b> {{dados[item][tipo]}}</p>
+                        {% endfor %}
+                    {% elif item == 'Endereço' %}
+                        <p class="items"><b>Endereço:</b></p>
+                        {% for sub in dados[item] %}
+                                <p class="items"><b>- {{sub.upper()}}:</b> {{dados[item][sub]}}</p>
+                        {% endfor %}
+                    {% else %}
+                        <p class="items"><b>{{item}}:</b> {{dados[item]}}</p>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
