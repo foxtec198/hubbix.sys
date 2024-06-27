@@ -12,16 +12,18 @@ def getPacotes():
     res = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Pacotes.json') 
     return res.json()
 
-@app.route('/login')
-def homeLogin():
-    return render_template('index.html')
-
 @app.route('/')
+@app.route('/login/')
 def home():
     return render_template('index.html')
 
-@app.route('/clientes')
-def clientes():
+@app.route('/registro/')
+def register():
+    return render_template('register.html')
+
+
+@app.route('/clientes/idUser=<idUser>')
+def clientes(idUser):
     pc = getPacotes()
     anual = 0
     mensal = 0
@@ -48,7 +50,7 @@ def clientes():
         if p == 'Vitalicio': faturamento += vitalicio
         if p == 'Mensal': faturamento += (mensal*12)
         if p == 'Anual': faturamento += anual
-    return render_template('clientes.html', cli=res, totalAtivos=ativos, totalInativos=inativos, total=total, vitalicio=vitalicio, mensal=mensal, anual=anual, faturamento=faturamento)
+    return render_template('clientes.html', cli=res, totalAtivos=ativos, totalInativos=inativos, total=total, vitalicio=vitalicio, mensal=mensal, anual=anual, faturamento=faturamento, idUser=idUser)
 
 if __name__ == '__main__':
     port = int(getenv('PORT', '3600'))

@@ -21,11 +21,28 @@ document.getElementById('btn').onclick = function(){
 
     signInWithEmailAndPassword(auth, email, pwd)
     .then((userCredential) => {
-        console.log('Deu bom!');
-        window.location = '/clientes'
+        const name = userCredential['user']['displayName']
+        
+        if(name == null){
+            
+        }else{
+
+        }
+        console.log(register)
+
+        // console.log('Deu bom!');
+        // window.location = '/clientes'
     })
     .catch((error) => {
         const errorMessage = error.message;
-        console.log('Ih, Deu ruim:', errorMessage)
+        if(errorMessage == 'Firebase: Error (auth/invalid-email).'){
+            document.getElementById('status').textContent = 'Email Invalido'
+        }
+        else if(errorMessage == 'Firebase: Error (auth/invalid-credential).'){
+            document.getElementById('status').textContent = 'Senha Invalida'
+        }
+        else {
+            document.getElementById('status').textContent = errorMessage
+        }
     });
 }

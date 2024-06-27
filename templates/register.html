@@ -6,17 +6,15 @@
     <link rel="stylesheet" href={{url_for('static', filename="style.css")}}>
     <link rel="icon" href={{url_for('static', filename='icons/favicon.ico')}}>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src={{url_for('static', filename="js/login.js")}}></script>
 </head>
 <body>
     <div class="container">
             <img class="logo" src={{url_for('static', filename="logo-white.png")}}>
             <form id="login">
-                <input id="email" typ   e="email" placeholder="Email" required="required" autocomplete="email">
-                <input id="pwd" type="password" placeholder="Senha" required="required" autocomplete="current-password">
+                <input id="email" placeholder="Como deseja ser Chamado ?" required="required" autocomplete="nickname">
                 <p id="status" style="text-align: center; margin-top: 10px; color: #e63946; background-color: aliceblue; border-radius: 10px;"></p>
             </form>
-            <button id="btn">Login</button>
+            <button id="btnRegister">Resgistrar Nome</button>
     </div>
 </body>
 </e63946
