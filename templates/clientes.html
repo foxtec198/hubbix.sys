@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <script type="module" src={{url_for('static', filename="js/barChart.js")}}></script>
     <script type="module" src={{url_for('static', filename="js/lineChart.js")}}></script>
+    <script type="module" src={{url_for('static', filename="js/getDados.js")}}></script>
     <title>Clientes</title>
     <style>
         body, html{
@@ -95,57 +96,90 @@
         /* Topper */
         .topp{
             display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            height: 30px;
-            padding-bottom: 10px;
-            padding-top: 10px;
+            height: 80px;
             margin: 0;
             background-color: #343a40;
-            backdrop-filter: blur(3px);
-            margin-bottom: 2%;
+            margin-bottom: 20px;
         }
         .topp img{
             height: 20px;
             margin-left: 5%;
         }
-        .topp button{
+        .op{
             background: none;
             border: none;
             color: white;
         }
-        .topp button:hover{
+        .op:hover{
             border-bottom: 3px solid white;
         }
-        .topp div{
+        .options{
             display: flex;
-            flex-wrap: nowrap;
-            justify-content: space-between;
+            /* width: 80%; */
+            overflow: hidden;
+            flex-wrap: wrap;
+            justify-content: right;
             margin-right: 5px;
         }
         .contGraph{
             margin-top: 20px;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: center;
             margin-left: 10%;
             margin-right: 10%;
         }
         .graph{
-            min-width: 50%;
-            min-height: 50%;
+            min-width: 30%;
+            min-height: 30%;
+        }
+        .btnUser{
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: small;
+        }
+        .userCont{
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            gap: 10px;
+            padding-right: 5%;
+        }
+        .btnSair{
+            background-color: #c1121f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px #0000;
+            gap: 5px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: .3rem;
         }
     </style>
 </head>
 <body>
-    <!--  -->
+    <!-- MENU BAR  -->
     <div class="topp">
         <img src={{url_for('static', filename='logo-white.png')}}>
-        <div>
-            <button>Home</button>
-            <button>Empresas</button>
-            <button>Download</button>
-            <h1 id="lblUser">User</h1>
+        <div class="options">
+            <button class="op">Home</button>
+            <button class="op">Empresas</button>
+            <button class="op">Download</button>
+        </div>
+        <div class="userCont">
+            <img id="imgUser" src={{url_for('static', filename="icons/userLogin.png")}}>
+            <h1 class="btnUser" id="btnLgOut">User</h1>
+            <button id="btnSair" class="btnSair">
+                <img id="imgUser" src={{url_for('static', filename="icons/exit.png")}}>
+                Sair
+            </button>
         </div>
     </div>
 
@@ -220,6 +254,5 @@
         </table>
     
     </div>
-    
 </body>
 </html>

@@ -6,7 +6,7 @@ new Chart(ctx2, {
         labels: ['Vilatilicio', 'Mensal', 'Anual', 'Outros'],
         datasets: [{
         label: 'Tipos de Faturamento',
-        data: [2, 5, 0, 0],
+        data: [1, 1, 0, 0],
         borderWidth: 1,
         backgroundColor: '#5e8b60',
         borderColor: '#5e8b60'

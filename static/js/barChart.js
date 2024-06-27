@@ -5,8 +5,8 @@ new Chart(ctx, {
     data: {
         labels: ['Debito', 'Credito', 'Pix', 'Dinheiro'],
         datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5],
+        label: 'Tipo de pagamentos',
+        data: [2, 0, 0, 0],
         borderWidth: 1,
         backgroundColor: '#5e8b60'
         }]

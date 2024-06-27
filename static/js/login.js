@@ -53,6 +53,4 @@ function logout(){
     .then(()=>{})
     .catch((error)=>{console.log(error)})
 }
-
 checkId()
-logout()
