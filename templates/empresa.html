@@ -33,7 +33,7 @@
                             <p class="items"><b>IP {{tipo}}:</b> {{dados[item][tipo]}}</p>
                         {% endfor %}
                     {% elif item == 'Endereço' %}
-                        <p class="items"><b>Endereço:</b></p>
+                        <p class="items"><b>Endereço: </b></p>
                         {% for sub in dados[item] %}
                                 <p class="items"><b>- {{sub.upper()}}:</b> {{dados[item][sub]}}</p>
                         {% endfor %}
@@ -43,6 +43,7 @@
                 {% endif %}
             {% endfor %}
         </div>
+        <p>Opções:</p>
         {% if dados['Situação'] == 'Ativa' %}
             <button class="btnDeactivate">Desativar Loja</button>
         {% elif dado['Situação'] == 'Inativa' %}

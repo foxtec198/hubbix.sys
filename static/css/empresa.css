@@ -34,8 +34,6 @@ body{
     font-size: 16px;
 }
 .infos{
-    border-radius: 20px;
-    overflow: visible;
     padding: 20px;
 }
 .metrics{
@@ -51,6 +49,7 @@ body{
 }
 .valores{
     font-weight: 700;
+    text-align: center;
     font-size: 20px;
 }
 .btnActive{
