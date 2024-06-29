@@ -9,15 +9,10 @@ body, html{
 body{
     background-color: #333;
 }
-.top{
-    display: flex;
-    justify-content: space-between;
-    padding: .8rem;
-    background-color: #282729;
-}
 .logo{
     height: 25px;
     margin-left: 10%;
+    margin-right: 50px;
 }
 .planos{
     display: flex;
@@ -29,9 +24,33 @@ body{
     padding: 2rem;
 }
 .card{
-    background-color: #121813ff;
+    background-color: #282729;
     color: white;
 }
 .card:hover{
     background-color: #2f5e36ff;
+}
+.imgCont{
+    margin-bottom: 20px;
+    padding: 10%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    position: relative;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+}
+.imgCont::before    {
+    content: '';
+    position: absolute;
+    color: #fff;
+    z-index: -1;
+    background: url('../panel2.jpg');
+    background-color: #000;
+    background-position: center;
+    background-size: cover;
+    inset: 0;
+    opacity: 20%;
 }
