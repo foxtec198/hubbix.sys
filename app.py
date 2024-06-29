@@ -37,15 +37,12 @@ def resultadosEmpresa(idEmp):
 app = Flask(__name__)
 
 @app.route('/')
-@app.route('/login/')
 def home():
-    return render_template('login.html')
+    return render_template('index.html')
 
-@app.route('/acesso/<idEmp>')
-def register(idEmp):
-    dados = getDadosEmpresa(idEmp)
-    resultados = resultadosEmpresa(idEmp)
-    return render_template('empresa.html', dados=dados, resultados=resultados)
+@app.route('/login/')
+def login():
+    return render_template('login.html')
 
 @app.route('/clientes/idUser=<idUser>')
 def clientes(idUser):
