@@ -19,7 +19,6 @@ def resultadosEmpresa(idEmp):
     dd = get(f'https://hubbixgourmet-default-rtdb.firebaseio.com/Lojas/{idEmp}/db/.json').json()
     resultado = {}
     vendas = dd['vendas']
-    saidas = dd['saidas']
     totalVendas = 0
     contagemVendas = 0
     
