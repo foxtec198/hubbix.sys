@@ -44,6 +44,12 @@ def home():
 def login():
     return render_template('login.html')
 
+@app.route('/acesso/<idEmp>')
+def register(idEmp):
+    dados = getDadosEmpresa(idEmp)
+    resultados = resultadosEmpresa(idEmp)
+    return render_template('empresa.html', dados=dados, resultados=resultados)
+
 @app.route('/clientes/idUser=<idUser>')
 def clientes(idUser):
     # Valores dos Pacotes
