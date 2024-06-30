@@ -19,12 +19,14 @@ def resultadosEmpresa(idEmp):
     dd = get(f'https://hubbixgourmet-default-rtdb.firebaseio.com/Lojas/{idEmp}/db/.json').json()
     resultado = {}
     vendas = dd['vendas']
+    saidas = dd['saidas']
     totalVendas = 0
     contagemVendas = 0
     
     for item in vendas:
         if item:
-            totalVendas += float(item[2])
+            try:totalVendas += float(item[1])
+            except: ...
             contagemVendas += 1
 
     resultado['totalVendas'] = f'{totalVendas:.2f}'
