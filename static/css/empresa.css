@@ -36,6 +36,10 @@ body{
 .infos{
     padding: 20px;
 }
+.infos ul li{
+    background-color: #121813ff;
+    color: #fff;
+}
 .metrics{
     display: flex;
     gap: 20px;
