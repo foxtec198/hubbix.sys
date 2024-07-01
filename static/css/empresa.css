@@ -54,10 +54,10 @@ body{
 .valores{
     margin-top: 1rem;
     margin-bottom: 1rem;
+    /* color: #1F2937; */
     color: #fff;
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-    flex-grow: 1;
+    font-size: 1.6rem;
+    line-height: 2rem;
     font-weight: 700;
     text-align: center;
 }
@@ -67,7 +67,6 @@ body{
     padding: 1rem;
     background-color: #282729ff;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    /* max-width: 320px; */
     border-radius: 20px;
 }
 .title{
@@ -117,10 +116,10 @@ body{
     margin-bottom: 1rem;
     /* color: #1F2937; */
     color: #fff;
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
     font-weight: 700;
-    text-align: left;
+    text-align: center;
 }
   
 .data .range {
