@@ -253,3 +253,21 @@ body{
     padding: 2rem;
     gap: 2rem;
 }
+.testeGratis{
+    background: url('../bgDown.jpg');
+    background-repeat: no-repeat;
+    flex-direction: column;
+    background-position: center;
+    background-size: cover;
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.text-down{
+    text-align: center;
+    width: 80%;
+}
+.title-down{
+    text-align: left;
+}
