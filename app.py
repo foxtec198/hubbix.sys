@@ -39,7 +39,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    linkDownload = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Version/.json').json()
+    return render_template('index.html', linkDownload=linkDownload)
 
 @app.route('/login/')
 def login():
