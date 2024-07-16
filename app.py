@@ -53,6 +53,13 @@ def register(idEmp):
     resultados = resultadosEmpresa(idEmp)
     return render_template('empresa.html', dados=dados, resultados=resultados)
 
+@app.route('/lasted/')
+def lasted():
+    version = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Version/Manager/.json').json()
+    linkDownload = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Links/.json').json()
+    link = linkDownload[f"Manager_{version.replace('.','_')}"]
+    return render_template('lasted.html', version=version, link=link)
+
 @app.route('/clientes/idUser=<idUser>')
 def clientes(idUser):
     # Valores dos Pacotes
