@@ -33,16 +33,13 @@ def resultadosEmpresa(idEmp):
 
     return resultado
 
-
 # Funções do Flask / Rotas
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    linkDownload = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Links/.json').json()
     version = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Version/Manager/.json').json()
-    link = linkDownload[f"Manager_{version.replace('.','_')}"]
-    return render_template('index.html', linkDownload=link)
+    return render_template('index.html', version=version)
 
 @app.route('/login/')
 def login():
@@ -57,9 +54,7 @@ def register(idEmp):
 @app.route('/lasted/')
 def lasted():
     version = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Version/Manager/.json').json()
-    linkDownload = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Links/.json').json()
-    link = linkDownload[f"Manager_{version.replace('.','_')}"]
-    return render_template('lasted.html', version=version, link=link)
+    return render_template('lasted.html', version=version)
 
 @app.route('/clientes/idUser=<idUser>')
 def clientes(idUser):
