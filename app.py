@@ -54,7 +54,8 @@ def register(idEmp):
 @app.route('/lasted/')
 def lasted():
     version = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Version/Manager/.json').json()
-    return render_template('lasted.html', version=version)
+    link = get('https://hubbixgourmet-default-rtdb.firebaseio.com/Link.json').json()
+    return render_template('lasted.html', version=version, link=link)
 
 @app.route('/clientes/idUser=<idUser>')
 def clientes(idUser):
